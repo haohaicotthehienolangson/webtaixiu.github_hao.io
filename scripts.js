@@ -1,4 +1,6 @@
 function startGame(choice) {
+    var audio = new Audio('./Tieng-lac-nhieu-dong-xu-trong-tay-www_tiengdong_com.mp3')
+    audio.play()
     var dice1Element = document.getElementById("dice1");
     var dice2Element = document.getElementById("dice2");
     var dice3Element = document.getElementById("dice3");
@@ -32,9 +34,17 @@ function startGame(choice) {
       var total = dice1 + dice2 + dice3;
       // Kiểm tra và in kết quả
       if (total < 10 ) {
-        resultElement.innerText = "Xỉu đó, nhắm húp nổi hông em??";
+        if(choice === 'roleFalse'){
+            resultElement.innerText = "Xỉu đó, Mất tiền nhé em!!";
+        }else{
+            resultElement.innerText = "Lụm tiền đi em!!";
+        }
       } else {
-        resultElement.innerText = "Tài! Tài! Lụm chưa??";
+        if(choice === 'roleTrue'){
+            resultElement.innerText = "Xỉu đó, Mất tiền nhé em!!";
+        }else{
+            resultElement.innerText = "Lụm tiền đi em!!";
+        }
       }
     }
   }
